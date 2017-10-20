@@ -90,7 +90,7 @@ a, h1, h3 {
 -- */
 
 a:hover {
-    color:#9f60a9;
+    color:#78356b;
 }
 
 /* --
@@ -99,7 +99,8 @@ a:hover {
 -- */
 
 .current a {
-    color: #9f60a9;
+    color: #78356b;
+    font-weight: bold;
 }
 
 /* ------------------------------------------------------------
@@ -129,7 +130,8 @@ a:hover {
 
 body {
     /* -- Je viens de changer la couleur du fond de page -- */
-    background-color: #EEE;
+    background: url(../img/fond2.jpg) no-repeat;
+    background-size: cover;
 }
 
 /* ---------------------
@@ -153,6 +155,9 @@ CONSIGNE :
 
     /* -- J'applique une marge interne ed 5px autour de #page -- */
     padding: 5px;
+
+    /* -- Overflow avec la valeur hidden, va supprimer l'affichage des tous les éléments qui dépassent de la div#page -- */
+    overflow: hidden;
 }
 
 .contenu h1 {
@@ -169,8 +174,155 @@ CONSIGNE :
 
 .BandeauDuHaut {
     width: 100%;
-    height: 360px;
-    background: url(../img/bandeau.jpg) no-repeat;
-    background-size: cover;
-    background-position-y: -90px; 
+    height: 240px;
+    background: url(../img/bandeau-saint-marc-colored.jpg) no-repeat;
+    background-size: contain;
 }
+
+/* --
+    CSS pour Illustration et Article
+    -- */
+
+.contenu {
+    /* -- Dimension & Positionnement -- */
+    width: 100%;
+    height: auto;
+    float: left;
+    /* -- Décoration -- */
+}
+
+.contenu span {
+    color:#a51f8b;
+}
+
+.illustration {
+    /* -- Dimension & Positionnement -- */
+    width: 470px;
+    height: auto;
+    float: left;
+    /* -- Décoration -- */
+    margin-right: 10px;
+}
+
+.illustration img {
+    max-width: 100%;
+}
+
+.article {
+    /* -- Dimension & Positionnement -- */
+    width: 460px;
+    height: auto;
+    float: left;
+    /* -- Décoration -- */
+    margin: 0 10px 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+}
+
+/* --
+    Style de mon Pied de Page
+    -- */
+
+.footer {
+    /* -- Dimension & Positionnement -- */
+    width: 100%;
+    /* -- Un hauteur de 210px -- */
+    height: 210px;
+    /* -- Positionnement -- */
+    float: left;
+    /* -- Décoration -- */
+    background-color: #78356b;
+    padding-top: 10px;
+}
+
+/* -- 
+    Ici, je souhaite que mes 3 blocks soient positionnés, les un à côté des autres, ...
+    Mon pied de page étant égale à 960px, je divise par mon nombre de blocks (3) tous en tenant compte des marges.
+-- */
+
+/* --
+    GOOGLE MAP
+    -- */
+
+    .gmap {
+        /* -- Dimension & Positionnement -- */
+        width: calc( (100% / 3) - 10px);
+        float: left;
+        /* -- Décoration -- */
+        margin-left: 10px;
+    }
+
+/* --
+    NEWSLETTER
+    -- */
+
+    .newsletter {
+        /* -- Dimension & Positionnement -- */
+        width: calc( (100% / 3) - 10px);
+        float: left;
+        /* -- Décoration -- */
+        margin-left: 10px;
+    }
+
+    .newsletter form {}
+
+    .newsletter fieldset {
+        font-family: 'Roboto Condensed', sans-serif;
+        border-radius: 8px;
+        border: 2px solid #FFF;
+        color: #FFF;
+        height: 180px;
+    }
+
+    .newsletter legend {}
+
+    .newsletter input {
+        width: 91%;
+        height: 25px;
+        margin-bottom: 5px;
+        padding: 5px 10px;
+    }
+
+    .newsletter input[type=submit] {
+        width: 100%;
+        height: 30px;
+        border: 0;
+        background: #FFF;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+    } 
+
+/* --
+    CONTACT
+    -- */
+
+    .contact {
+        /* -- Dimension & Positionnement -- */
+        width: calc( (100% / 3) - 10px);
+        float: left;
+        /* -- Décoration -- */
+        margin-left: 10px;
+    }
+
+    .contact h3 {
+        color: #FFF;
+        padding-left: 20px;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: normal;
+    }
+    .contact address {
+        color: #FFF;
+        padding-left: 20px;
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+    .contact address strong {
+        font-size: 20px;
+    }
+    .contact address a {
+        color: #FFF;
+        text-decoration: none;
+    }
+    .contact address a:hover {
+        text-decoration: underline;
+    }

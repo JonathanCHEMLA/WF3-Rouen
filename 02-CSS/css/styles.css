@@ -210,12 +210,20 @@ CONSIGNE :
     width: 470px;
     height: auto;
     float: left;
+    position: relative;
     /* -- Décoration -- */
     margin-right: 10px;
 }
 
 .illustration img {
     max-width: 100%;
+}
+
+.loupe {
+    width: 40px;
+    position: absolute;
+    right:10px;
+    bottom: 10px;
 }
 
 .article {

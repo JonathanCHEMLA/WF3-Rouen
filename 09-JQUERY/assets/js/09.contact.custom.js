@@ -9,13 +9,51 @@ $(function() {
         -------------------------------------------------------------- */
     
         // -- Fonction ajouterContact(Contact) : Ajouter un Contact dans le tableau de Contacts, mettre à jour le tableau HTML, réinitialiser le formulaire et afficher une notification.
-        function ajouterContact(UnContact) {}
+        function ajouterContact(UnContact) {
+
+            // -- Ajouter un Contact dans "CollectionDeContacts"
+            CollectionDeContacts.push(UnContact);
+
+            // -- Observez l'ajout des contacts dans la collection
+            console.log(CollectionDeContacts);
+
+            // -- On cache la phrase : aucun contact
+            $('.aucuncontact').hide();
+
+            // -- Mise à jour du HTML
+            $(`
+                <tr>
+                    <td>${UnContact.nom}</td>
+                    <td>${UnContact.prenom}</td>
+                    <td>${UnContact.email}</td>
+                    <td>${UnContact.tel}</td>
+                </tr>
+            `).appendTo($('#LesContacts').find('tbody'));
+
+            // -- Réinitialisation du Formulaire
+            reinitialisationDuFormulaire();
+
+            // -- Afficher une notification
+            afficheUneNotification();
+        }
     
         // -- Fonction RéinitialisationDuFormulaire() : Après l'ajout d'un contact, on remet le formulaire à 0 !
-        function reinitialisationDuFormulaire() {}
+        function reinitialisationDuFormulaire() {
+
+            // -- En jQuery :
+            $('#contact').get(0).reset();
+
+            // -- En Javascript
+            document.getElementById('contact').reset();
+
+            // -- Autre Méthode
+            $('#contact .form-control').val("");
+        }
     
         // -- Affichage d'une Notification
-        function afficheUneNotification() {}
+        function afficheUneNotification() {
+            $('.alert-contact').fadeIn().delay(3000).fadeOut();
+        }
     
         // -- Vérification de la présence d'un Contact dans Contacts
         function estCeQunContactEstPresent(UnEmail) {
@@ -111,9 +149,13 @@ $(function() {
 
                 // -- Vérification avec EstCeQunContactEstPresent
                 if(!estCeQunContactEstPresent(email.val())) {
+                    
                     // -- Ajout du Contact
+                    ajouterContact(Contact);
+
                 } else {                    
                     alert('ATTENTION\nCe contact est déjà présent.');
+                    reinitialisationDuFormulaire();
                 }
 
             } else {
